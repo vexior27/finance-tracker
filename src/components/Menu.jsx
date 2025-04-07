@@ -1,6 +1,8 @@
-import { Avatar, Text, Button, Input, ActionIcon } from '@mantine/core';
-import { IconChartBar, IconPlane, IconCreditCardFilled, IconCirclePlusFilled, IconHouse } from '@tabler/icons-react';
+import { Avatar, Text, Button, Input } from '@mantine/core';
+import { IconChartBar, IconPlane, IconCreditCardFilled, IconCirclePlusFilled, IconHome } from '@tabler/icons-react';
 import React, { useState } from 'react';
+
+import { Link } from 'react-router-dom';
 
 export default function Menu() {
 
@@ -25,14 +27,23 @@ export default function Menu() {
          </div>
          <div className='menu-category-section flex flex-col gap-2 items-center justify-start'>
             <Button size='md' fullWidth leftSection={<IconChartBar size={20}/>}>Overview</Button>
-            <Button size='md' variant='default' fullWidth leftSection={<IconHouse size={20}/>}>Home</Button>
+            <Button size='md' variant='default' fullWidth leftSection={<IconHome size={20}/>}>Home</Button>
             <Button size='md' variant='default' fullWidth leftSection={<IconCreditCardFilled size={20}/>}>Expenses</Button>
-            <Button size='md' variant='default' fullWidth leftSection={<IconPlane size={20}/>}>Trips</Button>
+            <Button 
+               component={Link}
+               to='/trips'
+               size='md' 
+               variant='default' 
+               fullWidth 
+               leftSection={<IconPlane size={20}/>}
+            >
+               Trips
+            </Button>
          </div>
          <Text size="xs" fw={500} c='dimmed'>Add category</Text>
          <div className='menu-add-category-section flex flex-col gap-2 items-center justify-start'>
             {
-               categories.map((cat) => (
+               categories.map((cat) => (  
                   <Button size='md' variant='default' fullWidth>{cat}</Button>
                ))
             }
