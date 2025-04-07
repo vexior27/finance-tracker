@@ -10,11 +10,13 @@ function App() {
   return (
     <MantineProvider>
       <BrowserRouter>
-        <Menu />
-        <Routes>
-          <Route path="overview" element={<h2>NIgger</h2>} />
-          <Route path="trips" element={<Trips />} />
-        </Routes>
+        <div className='flex h-screen'>
+          <Menu />
+          <Routes>
+            <Route path="overview" element={<h2>NIgger</h2>} />
+            <Route path="trips" element={<Trips />} />
+          </Routes>
+        </div>
       </BrowserRouter>
     </MantineProvider>
   )

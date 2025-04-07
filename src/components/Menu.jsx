@@ -18,7 +18,7 @@ export default function Menu() {
    }
 
    return (
-      <div className='menu w-1/6 h-screen border-r-1 border-gray-200 flex flex-col gap-4 p-3'>
+      <div className='menu w-1/6 h-screen border-r-1 border-gray-200 flex flex-col gap-4 p-3 bg-white'>
          <div className='menu-avatar-section w-full h-1/6  flex items-center justify-end flex-col gap-2'>
             <Avatar 
                size='lg'
