@@ -10,6 +10,8 @@ export default function Menu() {
    const [newCategory, setNewCategory] = useState('');
    const [isAdding, setIsAdding] = useState(false);
 
+   const [activePage, setActivePage] = useState('overview');
+
    const addNewCategory = () => {
       if(newCategory === '') return;
       setCategories((prev) => [...prev, newCategory]);
@@ -26,15 +28,54 @@ export default function Menu() {
             <Text size="s" fw={500}>Rafał Krupa</Text>
          </div>
          <div className='menu-category-section flex flex-col gap-2 items-center justify-start'>
-            <Button size='md' fullWidth leftSection={<IconChartBar size={20}/>}>Overview</Button>
-            <Button size='md' variant='default' fullWidth leftSection={<IconHome size={20}/>}>Home</Button>
-            <Button size='md' variant='default' fullWidth leftSection={<IconCreditCardFilled size={20}/>}>Expenses</Button>
+            <Button 
+               size='md' 
+               component={Link}
+               to='/overview'
+               variant={
+                  activePage === 'overview' ? 'filled' : 'default'
+               }
+               fullWidth 
+               leftSection={<IconChartBar size={20}/>}
+               onClick={() => setActivePage('overview')}
+            >
+               Overview
+            </Button>
+            <Button 
+               component={Link}
+               to='/home'
+               size='md' 
+               fullWidth 
+               variant={
+                  activePage === 'home' ? 'filled' : 'default'
+               }
+               onClick={() => setActivePage('home')}
+               leftSection={<IconHome size={20}/>}
+            >
+               Home
+            </Button>
+            <Button 
+               size='md' 
+               component={Link}
+               to='/expenses'
+               variant={
+                  activePage === 'expenses' ? 'filled' : 'default'
+               }
+               fullWidth 
+               onClick={() => setActivePage('expenses')}
+               leftSection={<IconCreditCardFilled size={20}/>}
+            >
+               Expenses
+            </Button>
             <Button 
                component={Link}
                to='/trips'
                size='md' 
-               variant='default' 
+               variant={
+                  activePage === 'trips' ? 'filled' : 'default'
+               } 
                fullWidth 
+               onClick={() => setActivePage('trips')}
                leftSection={<IconPlane size={20}/>}
             >
                Trips
